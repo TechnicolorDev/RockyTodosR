@@ -66,7 +66,7 @@ cd /var/www/rockytodo
 ```
 ### **Step 5: Clonning the repository**
 ```bash
-curl -L -o RockyTodoR-0.0.1.tar.gz https://github.com/TechnicolorDev/RockyTodoR/releases/download/0.0.1/RockyTodoR-0.0.1.tar.gz
+curl -L -o RockyTodosR-rocky-panel.tar.gz https://github.com/TechnicolorDev/RockyTodosR/releases/tag/rocky-panel/RockyTodosR-rocky-panel.tar.gz
 tar -xzvf RockyTodoR-0.0.1.tar.gz
 chmod -R 755 storage/* bootstrap/cache/
 ```
