@@ -1,0 +1,1347 @@
+@import 'variables';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+}
+
+.Toastify__toast--success {
+  background-color: #333333 !important; /* Dark gray background */
+  color: #ffffff !important; /* White text */
+  border-left: 4px solid #28a745 !important; /* Green left border for success */
+}
+
+/* Error Toast with red accent */
+.Toastify__toast--error {
+  background-color: #333333 !important; /* Dark gray background */
+  color: #ffffff !important; /* White text */
+  border-left: 4px solid #dc3545 !important; /* Red left border for error */
+}
+
+/* Info Toast with blue accent */
+.Toastify__toast--info {
+  background-color: #333333 !important; /* Dark gray background */
+  color: #ffffff !important; /* White text */
+  border-left: 4px solid #17a2b8 !important; /* Blue left border for info */
+}
+
+/* Warning Toast with yellow accent */
+.Toastify__toast--warning {
+  background-color: #333333 !important; /* Dark gray background */
+  color: #ffffff !important; /* White text */
+  border-left: 4px solid #ffc107 !important; /* Yellow left border for warning */
+}
+
+/* Default Toast Style */
+.Toastify__toast {
+  background-color: #333333 !important; /* Dark gray background */
+  color: #ffffff !important; /* White text */
+  border-radius: 8px !important; /* Rounded corners */
+  padding: 10px 20px !important; /* Padding inside the toast */
+}
+
+/* Target the X icon svg directly */
+.Toastify__toast .Toastify__toast-icon--close svg {
+  fill: #ffffff !important; /* Change the fill color to white */
+}
+
+/* Alternatively, target the path within the svg */
+.Toastify__toast .Toastify__toast-icon--close svg path {
+  fill: #ffffff !important; /* Ensure the path is also white */
+}
+
+/* Optional: Hover effect for close icon to stay white */
+.Toastify__toast .Toastify__toast-icon--close svg:hover {
+  fill: #ffffff !important; /* Ensure the fill stays white on hover */
+}
+
+
+.login-wrapper {
+  position: fixed; /* Keep it fixed in the viewport */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the wrapper */
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Ensure it's on top of other content */
+  .login {
+    background: #1A1A1A56;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: var(--secondary-color-bg) 2.5px solid;
+    border-radius: 40px;
+    padding: 25px;
+    width: 100%;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    backdrop-filter: blur(10px); /* Apply blur effect */
+    -webkit-backdrop-filter: blur(10px);
+
+    .text-login {
+      font-size: 40px;
+      font-weight: 700;
+      color: var(--secondary-color);
+      margin-bottom: 40px;
+    }
+    .input-wrapper {
+      position: relative;
+
+    }
+
+    .input-icon {
+      position: absolute;
+      right: 25px; /* Aligns icon to the right */
+      top: 37.5%;
+      transform: translateY(-50%); /* Vertically center the icon */
+      font-size: 20px; /* Adjust the icon size */
+      color: #888; /* Icon color */
+    }
+
+    .login-input {
+      width: 100%;
+      padding: 17px;
+      margin-bottom: 20px;
+      font-weight: 550;
+      border: 2.5px solid var(--secondary-color-bg);
+      border-radius: 30px;
+      background-color: var(--input-bg-color);
+      color: var(--secondary-color);
+      font-size: 16px;
+      transition: border-color 0.3s ease;
+
+      &:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 5px rgba(var(--primary-color), 0.5);
+      }
+
+      &::placeholder {
+        color: #aaa;
+      }
+    }
+
+    .loginb-btn {
+      width: 95%;
+      padding: 12px;
+      font-weight: 700;
+      background-color: var(--primary-color);
+      color: #fff;
+      border: none;
+      border-radius: 25px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: var(--button-hover-color);
+      }
+    }
+
+    .forgot-password-text {
+      cursor: pointer;
+      display: block;
+      margin-top: 15px;
+      color: var(--invisible-text);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: (var(--primary-color), 10%);
+      }
+    }
+  }
+}
+
+// Responsive design for mobile
+@media (max-width: 600px) {
+  .login {
+    padding: 20px;
+    max-width: 90%;
+  }
+
+  .text-login {
+    font-size: 20px;
+  }
+
+  .login-input {
+    font-size: 14px;
+  }
+
+  .loginb-btn {
+    font-size: 14px;
+  }
+
+  .forgot-password-text {
+    font-size: 12px;
+  }
+}
+.forgot-password-div {
+  background: var(--secondary-color-bg);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 25px;
+  padding: 40px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease-in-out;
+
+  .forgot-password-h1 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+  }
+
+  .forgot-password-email {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+    margin-left: 15px;
+    text-align: left;
+  }
+
+  .forgot-password-email-input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid var(--secondary-color-bg);
+    border-radius: 25px;
+    background-color: var(--input-bg-color);
+    color: var(--secondary-color);
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+
+    &:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 5px rgba(var(--primary-color), 0.5);
+    }
+
+    &::placeholder {
+      color: #aaa;
+    }
+  }
+
+  .forgot-password-submit {
+    width: 100%;
+    padding: 12px;
+    font-weight: 700;
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+
+    &:hover {
+      background-color: var(--button-hover-color);
+    }
+  }
+
+  p {
+    margin-top: 15px;
+    font-size: 14px;
+  }
+
+  p[style*='color: green'] {
+    color: #28a745; /* Override green color */
+  }
+
+  p[style*='color: red'] {
+    color: #dc3545; /* Override red color */
+  }
+}
+.reset-password-container {
+  background: var(--secondary-color-bg);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 40px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease-in-out;
+
+  .reset-password-h1 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+  }
+
+  p[style*='color: red'] {
+    color: #dc3545; /* Error text color */
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+
+  p[style*='color: green'] {
+    color: #28a745; /* Success text color */
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    div {
+      width: 100%;
+      margin-bottom: 20px;
+
+      label {
+        display: block;
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--secondary-color);
+        margin-bottom: 8px;
+        text-align: left;
+      }
+
+      .reset-password-input {
+        width: 100%;
+        padding: 15px;
+        border: 1px solid var(--secondary-color-bg);
+        border-radius: 25px;
+        background-color: var(--input-bg-color);
+        color: var(--secondary-color);
+        font-size: 16px;
+        transition: border-color 0.3s ease;
+
+        &:focus {
+          outline: none;
+          border-color: var(--primary-color);
+          box-shadow: 0 0 5px rgba(var(--primary-color), 0.5);
+        }
+
+        &::placeholder {
+          color: #aaa;
+        }
+      }
+    }
+
+    .reset-password-btn {
+      width: 100%;
+      padding: 12px;
+      font-weight: 700;
+      background-color: var(--primary-color);
+      color: #fff;
+      border: none;
+      border-radius: 25px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: var(--button-hover-color);
+      }
+
+      &:disabled {
+        background-color: (var(--primary-color), 10%);
+        cursor: not-allowed;
+      }
+    }
+  }
+}
+.todos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; // Aligns content vertically in the center
+  text-align: center;
+  margin-top: 200px;
+
+  .todo-list-h1 {
+    justify-content: center;
+    text-align: center;
+    align-content: center;
+    color: white;
+    font-size: 50px;
+    font-weight: 700;
+    transition: 0.3s ease color;
+
+    &:hover {
+      color: var(--primary-color);
+    }
+  }
+
+  .todo-list-btn {
+    margin-top: 20px;
+    color: white;
+    background-color: var(--primary-color);
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 17px;
+    cursor: pointer;
+    font-weight: 700;
+    border: none;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: var(--button-hover-color);
+    }
+  }
+}
+.todo-list{
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  @media (max-width: 450px) {
+    width: 95%;
+
+  }
+  .todo-item {
+    display: flex;
+    flex-direction: column; // Stack the contents vertically
+    text-align: left;
+    align-items: flex-start; // Align items to the top
+    margin-top: 20px; // Reduces the space between the todo items
+    background: var(--gradient-bg);
+    width: 400px; // Fixed width to avoid stretching
+    max-width: 100%; // Ensure it doesn't overflow the container
+    padding: 20px; // Add padding to create space inside the todo item
+    border-radius: 25px; // Rounded corners for the todo item
+    transition: transform 0.3s ease; // Adds a smooth hover effect for interaction
+    border: 4px solid #111111;
+    box-shadow: 0 0 0 1px #333333;
+
+    &:hover {
+      transform: scale(1.02); // Slight zoom effect on hover
+    }
+
+    .todo-item-h3 {
+      font-size: 24px;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 10px;
+    }
+
+    .todo-item-p1 {
+      font-size: 16px;
+      color: white;
+      margin-bottom: 10px;
+    }
+
+    .todo-item-p2 {
+      font-size: 14px;
+      color: var(--invisible-text);
+      margin-bottom: 15px;
+    }
+
+    .todo-item-p3 {
+      font-size: 14px;
+      color: var(--primary-color);
+      text-decoration: none;
+      margin-bottom: 15px;
+
+      &:hover {
+        text-decoration: underline; // Underline the link on hover
+      }
+    }
+
+    .todo-item-btn {
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 10px 40px;
+
+      font-weight: 700;
+      border-radius: 25px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+
+      width: auto; // Adjusts based on padding and content size
+      max-width: 100%; // Ensures the button doesn't stretch beyond its container
+
+      text-align: center;
+      display: inline-flex;  // Ensure the button is inline but still allows centering
+      justify-content: center;
+      align-items: center;   // Center the text vertically
+
+      &:hover {
+        background-color: var(--button-hover-color);
+        transform: translateY(-2px); // Add slight hover effect
+      }
+    }
+
+  }
+}
+// create.scss
+
+.todo-create {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: var(--secondary-color-bg);
+  border-radius: 25px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: (var(--font-family));
+
+  /* Ensure the container is centered both vertically and horizontally */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centers the container */
+
+  text-align: center;
+
+  .create-h1 {
+    font-size: 32px;
+    color: var(--secondary-color);
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: center;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: var(--primary-color); // Hover color effect
+    }
+  }
+
+  .todo-create-input {
+    width: 100%;
+    padding: 15px 15px;
+    margin-bottom: 15px;
+    background-color: var(--input-bg-color);
+    border: 1px solid #555;
+    border-radius: 25px;
+    color: var(--secondary-color);
+    font-size: 16px;
+    transition: all 0.3s ease;
+
+    &::placeholder {
+      color: var(--invisible-text);
+    }
+
+    &:focus {
+      outline: none;
+      border-color: var(--primary-color); // Blue border on focus
+      box-shadow: 0 0 5px rgba(0, 97, 252, 0.7); // Light blue glow on focus
+    }
+  }
+
+  .create-btn {
+    width: 50%;
+    padding: 12px;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    font-weight: bold;
+    font-size: 18px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+
+    &:hover {
+      background-color: var(--button-hover-color); // Darker blue on hover
+      transform: translateY(-2px); // Button hover effect
+    }
+
+    &:disabled {
+      background-color: #999; // Disabled state
+      cursor: not-allowed;
+    }
+  }
+
+  .error {
+    color: #dc3545; // Red color for errors
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: center;
+  }
+}
+.edit-todo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: var(--secondary-color-bg);
+  border-radius: 25px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: var(--font-family);
+
+  /* Ensure the container is centered both vertically and horizontally */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centers the container */
+  text-align: center;
+
+  .edit-todo-h1 {
+    font-size: 32px;
+    color: var(--secondary-color);
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: center;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: var(--primary-color);
+    }
+  }
+
+  .edit-todo-label {
+    font-size: 16px;
+    color: var(--secondary-color);
+    margin-bottom: 5px;
+    display: block;
+  }
+
+  .edit-todo-input {
+    width: 100%;
+    padding: 15px 15px;
+    margin-bottom: 15px;
+    background-color: var(--input-bg-color);
+    border: 1px solid #555;
+    border-radius: 25px;
+    color: var(--secondary-color);
+    font-size: 16px;
+    transition: all 0.3s ease;
+
+    &::placeholder {
+      color: var(--invisible-text);
+    }
+
+    &:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 5px rgba(0, 97, 252, 0.7); // Light blue glow on focus
+    }
+  }
+
+  .edit-todo-btn {
+    width: 50%;
+    padding: 12px;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    font-weight: bold;
+    font-size: 18px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+
+    &:hover {
+      background-color: var(--button-hover-color);
+      transform: translateY(-2px);
+    }
+
+    &:disabled {
+      background-color: #999;
+      cursor: not-allowed;
+    }
+  }
+
+  .edit-todo-delete {
+    width: 50%;
+    padding: 12px;
+    background-color: #dc3545; // Red for delete button
+    color: var(--secondary-color);
+    font-weight: bold;
+    font-size: 18px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 10px;
+
+    &:hover {
+      background-color: (#dc3545, 10%);
+      transform: translateY(-2px);
+    }
+  }
+
+  .error {
+    color: #dc3545; // Red color for errors
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: center;
+  }
+}
+/* ColorSettings.module.scss */
+.color-settings {
+  font-family: var(--font-family);
+  color: var(--secondary-color);
+  background: var(--background-color);
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+
+  h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+  }
+
+  .colors-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+
+    .color-item {
+      background-color: var(--secondary-color-bg);
+      padding: 10px;
+      border-radius: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--secondary-color);
+
+      .color-box {
+        width: 50px;
+        height: 50px;
+        border-radius: 5px;
+        background-color: inherit;
+      }
+
+      .edit-btn {
+        background-color: var(--primary-color);
+        color: var(--secondary-color);
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: var(--button-hover-color);
+        }
+      }
+    }
+  }
+
+  .edit-section {
+    margin-top: 30px;
+
+    h3 {
+      font-size: 1.5rem;
+      color: var(--primary-color);
+      margin-bottom: 15px;
+    }
+
+    .chrome-picker {
+      margin-bottom: 20px;
+    }
+
+    .save-btn {
+      background-color: var(--primary-color);
+      color: var(--secondary-color);
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: var(--button-hover-color);
+      }
+    }
+
+    .reset-btn {
+      background-color: var(--secondary-color-bg);
+      color: var(--secondary-color);
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      margin-left: 15px;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: (var(--secondary-color-bg), 10%);
+      }
+    }
+  }
+}
+.loading-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); // Semi-transparent black background
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 1s ease-out; // Smooth fade-out transition
+
+  &.fade-out {
+    opacity: 0; // Fade out when loading is complete
+  }
+
+  l-bouncy-arc {
+    width: 70px;
+    height: 70px;
+  }
+}
+.animated-container{
+  padding: 0;
+  margin: 0;
+}
+
+.admin-page {
+  display: flex;
+  height: 100vh;
+
+  /* Sidebar (for both mobile and desktop) */
+  .admin-page-sidebar {
+    width: 250px;
+    background: var(--secondary-color-bg);
+    color: var(--secondary-color);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 20px;
+    padding-left: 20px;
+    box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    transition: transform 0.3s ease; /* For smooth transition */
+
+    /* Initially hide sidebar for mobile */
+    transform: translateX(-100%);
+
+    /* When sidebar is open */
+    &.open {
+      transform: translateX(0); /* Slide sidebar in */
+    }
+
+    /* Media Query for Mobile (max-width: 768px) */
+    @media (max-width: 768px) {
+      /* Sidebar remains hidden by default */
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+
+      &.open {
+        transform: translateX(0); /* Show sidebar */
+      }
+    }
+    .admin-page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 50px;
+      padding: 10px;
+      background-color: var(--secondary-color-bg);
+      color: var(--secondary-color);
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .close-sidebar-button {
+      background: transparent;
+      border: none;
+      color: var(--secondary-color);
+      font-size: 24px;
+      cursor: pointer;
+      display: none;
+
+      &:hover {
+        color: var(--primary-color);
+      }
+      @media (max-width: 768px) {
+        display: block;
+
+      }
+    }
+
+    /* Styles for sidebar sections */
+    .sidebar-section {
+      margin-top: 50px;
+
+      h2 {
+        color: var(--secondary-color);
+        font-size: 18px;
+        margin-bottom: 10px;
+        font-weight: 600;
+        background-color: var(--background-color);
+        padding: 10px 20px;
+        border-radius: 25px;
+        width: 90%;
+      }
+
+      .admin-page-nav-menu {
+        padding: 0;
+        margin: 0;
+
+        ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+        }
+
+        li {
+          margin: 15px 0;
+
+          .admin-page-a {
+            display: flex;
+            align-items: center;
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-size: 16px;
+            padding: 10px;
+            transition: all 0.3s ease;
+            gap: 10px;
+            width: 60%;
+            border-radius: 25px;
+
+            &:hover {
+              background-color: var(--primary-color);
+              color: var(--secondary-color);
+              width: 60%;
+            }
+
+            /* This applies when the link is active */
+            &.active {
+              background-color: var(--primary-color); /* Change background */
+              color: var(--secondary-color); /* Change text color */
+              font-weight: bold; /* Bold text */
+              border-radius: 25px; /* Rounded corners */
+              width: 60%;
+            }
+
+            svg {
+              font-size: 18px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /* Mobile: Show sidebar when 'open' class is added */
+  .admin-page-sidebar.open {
+    transform: translateX(0); /* Show sidebar */
+  }
+
+  /* Sidebar Button (Mobile Only) */
+  .admin-page-sidebar-button {
+    display: none !important; /* Hide by default on larger screens */
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 30px;
+    background: transparent;
+    border: none;
+    color: var(--secondary-color);
+    z-index: 110;
+
+    /* Mobile view: Show the button when screen width is less than 768px */
+    @media screen and (max-width: 768px) {
+      display: block !important;
+    }
+  }
+
+  /* If the sidebar is open, hide the button */
+  .admin-page-sidebar.open + .admin-page .admin-page-sidebar-button {
+    display: none !important; /* Hide when sidebar is open */
+  }
+
+
+
+  /* Main Content (desktop and mobile) */
+  .admin-page-content {
+    margin-left: 250px; /* Offset content to the right of the sidebar */
+    padding: 20px;
+    width: 100%;
+    height: 100vh;
+    overflow-y: auto;
+
+    /* Adjust the layout for mobile */
+    @media screen and (max-width: 768px) {
+      margin-left: 0;
+      padding-left: 20px;
+    }
+  }
+
+  /* For larger screens, the sidebar should always be visible */
+  @media screen and (min-width: 769px) {
+    .admin-page-sidebar {
+      transform: translateX(0);
+    }
+  }
+}
+
+.install-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.installer-bg {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.check-requirements-container {
+  width: 1000px;
+  height: 100%;
+  max-height: 600px;
+  background: var(--secondary-color-bg);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 25px;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.progress-bar-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 20px;
+  border-radius: 25px;
+}
+
+.progress-bar-wrapper {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 25px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  border-radius: 4px;
+  position: relative;
+
+}
+
+.progress-bar .progress {
+  height: 100%;
+  transition: background 0.3s ease;
+}
+
+.progress-bar .progress.active {
+  background: var(--primary-color); // Green for active steps
+  border-radius: 50px;
+}
+
+.progress-bar .progress.pending {
+  background: var(--background-color); // Gray for pending steps
+  border-radius: 50px;
+}
+
+.step-number {
+  position: absolute;
+  top: 12px; // Position number inside progress bar
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 14px;
+  color: var(--primary-color);
+  background-color: var(--background-color);
+  padding: 7px 11px;
+  border-radius: 50%;
+  font-weight: bold;
+}
+
+.check-requirements-list {
+  list-style: none;
+  margin-top: 50px;
+  width: 100%;
+  border: var(--background-color) 2.5px solid;
+  border-radius: 25px;
+  padding: 30px;
+}
+
+.check-item {
+  font-size: 16px;
+  margin: 10px 0;
+  border: var(--background-color) 2.5px solid;
+  border-radius: 15px;
+  padding: 10px;
+  text-align: left;
+  justify-content: left;
+}
+
+.check-item.success {
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+}
+.check-item.error {
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+}
+.checkmark{
+  color: #4caf50;
+  font-weight: 700;
+  top: 15px;
+}
+.x-icon{
+  top: 15px;
+  color: red;
+  font-weight: 700;
+}
+.icon-wrapper {
+  display: inline-flex;   /* Makes sure the icon aligns with the text */
+  justify-content: center;
+  align-items: baseline;  /* Aligns the icon to the baseline of the text */
+}
+
+.isntalled-p{
+  color: gray;
+  margin-left: 26px;
+  font-weight: 500;
+  font-size: 15px;
+}
+.btn-install-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;  /* Space out the buttons */
+  width: 100%;  /* Ensure the container takes full width */
+}
+
+.btn-next {
+  display: flex;
+  flex-direction: row;
+  padding: 10px 20px;
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  margin-top: 15px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s ease;
+  gap: 5px;
+}
+
+.btn-next.next {
+  margin-left: auto;  /* Align the "Next" button to the right */
+}
+.btn-next:hover {
+  background: var(--button-hover-color);
+}
+.installer-env-setup-page {
+  display: none;
+
+  &.active {
+    display: block;
+  }
+
+  .installer-env-setup-form-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+
+    /* Left Column */
+    .installer-env-setup-left-column {
+      width: 48%;
+      padding: 10px;
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+
+      input,
+      select {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      h3 {
+        margin-top: 20px;
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+    }
+
+    /* Right Column */
+    .installer-env-setup-right-column {
+      width: 48%;
+      padding: 10px;
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+
+      input {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+    }
+  }
+
+  .btn-install-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-start;
+
+    .btn-next {
+      padding: 10px 20px;
+      background: var(--primary-color);
+      color: #fff;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-right: 10px;
+      transition: background 0.3s ease;
+
+      &:hover {
+        background: var(--primary-color-dark);
+      }
+    }
+  }
+}
+.main-navbar {
+  display: flex;
+  justify-content: space-between; // Adjusted to separate the logout and user info sections
+  align-items: center;
+  padding: 10px 10px;
+  border-radius: 5px;
+}
+
+.left-buttons {
+  display: flex;
+  align-items: center;
+  background-color: var(--secondary-color-bg);
+  padding: 25px 10px;
+  border-radius: 30px;
+  gap: 15px;
+}
+
+.logout-button, .admin-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 30px;
+  color: var(--secondary-color);
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.logout-button {
+  border: none;
+  background-color: var(--primary-color);
+}
+
+.logout-button:hover {
+  border: none;
+  background-color: var(--button-hover-color);
+}
+
+.admin-button {
+  border: none;
+  background-color: var(--secondary-color-bg);
+}
+
+.admin-button:hover {
+  border: none;
+  background-color: var(--primary-color);
+}
+
+.admin-icon {
+  border: none;
+  margin-right: 10px; // Space between icon and text
+  font-size: 20px;
+}
+
+.user-info-container {
+  display: flex;
+  align-items: center;
+  background-color: var(--secondary-color-bg); // Light background for text container
+  padding: 10px;
+  border-radius: 30px;
+  gap: 20px;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.username {
+  font-size: 30px;
+  justify-content: right;
+  text-align: right;
+  font-weight: bold;
+  color: var(--secondary-color);
+}
+
+.email {
+  font-size: 15px;
+  color: var(--invisible-text);
+}
+
+.gravatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover; // Ensure image is scaled correctly to the circle
+  background-color: var(--secondary-color-bg); // Light background for image area
+}
+
+.not-logged-in {
+  color: var(--invisible-text);
+  font-size: 16px;
+  background-color: var(--secondary-color-bg); // Light background for not logged in message
+  padding: 10px;
+  border-radius: 5px;
+}
